@@ -1,10 +1,14 @@
-Peso = float(imput('Qual é ou seu peso?')) 
-Altura = float(imput('Qual é sua altura')) 
-imc = peso / altura ** 2)
-Print("Seu Imc é de" .format{imc})
- If Imc < 18.5: 
-print ("Seu imc está abaixo do ideal")
-Elif 18.5 <= imc <= 25:
-Print ("Está no peso ideal!")
-Elif 25 <= imc <30: 
-Print("Você está com sobrepeso")
+altura = float(input ("digite sua altura!"))
+peso = float(input("digite seu peso"))
+
+IMC = peso/(altura*altura)
+
+print (f"Seu IMC é {IMC:.1f}")
+if IMC<=18.5:
+    print("Abaixo da média")
+elif IMC>=18.6 and IMC<=24.9:
+    print ("Está na média")
+elif IMC>=25 and IMC<=29.9:
+    print ("Está com sobrepeso")
+elif IMC>=30 and IMC<=34.9:
+    print ("Está entrando na obesidade")
