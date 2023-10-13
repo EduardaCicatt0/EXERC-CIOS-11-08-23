@@ -1,38 +1,25 @@
-import tkinter as tk
-from tkinter import ttk
-from tkinter import messagebox
+class ContaBancaria:
+    def __init__(self, titular):
+        self.titular = titular
+        self.saldo = 0
 
-def trabalho():
-    nome = Ins_nome.get()
-    mensagem = Ins_mensagem.get()
-    
-    if nome and mensagem:
-        Mens_Janela = tk.Toplevel(janela)
-        Mens_Janela.title('Mensagem Enviada')
-        Labelmensagem = tk.Label(Mens_Janela, text=f"{nome} diz {mensagem}")
-        Labelmensagem.pack()
-        janela.wait_window(Mens_Janela)
-    else:
-        messagebox.showerror("Erro", "Por favor, insira o nome e a mensagem")
+    def depositar(self, valor):
+        self.saldo += valor
+        print(f'Depósito de R${valor} realizado com sucesso.')
 
-janela = tk.Tk()
-janela.title("Prova diagnóstica")
-janela.geometry("250x250")
+    def sacar(self, valor):
+        if self.saldo >= valor:
+            self.saldo -= valor
+            print(f'Saque de R${valor} realizado com sucesso.')
+        else:
+            print('Saldo insuficiente.')
 
-Nome = tk.Label(janela, text="Nome")
-Nome.pack()
-Ins_nome = tk.Entry(janela)
-Ins_nome.pack()
+    def ver_saldo(self):
+        print(f'O saldo atual é R${self.saldo}.')
 
-mensagem = tk.Label(janela, text="Mensagem")
-mensagem.pack()
-Ins_mensagem = tk.Entry(janela)
-Ins_mensagem.pack()
-
-botao = tk.Button(janela, text="Enviar", command=trabalho)
-botao.pack()
-
-Men_espera = tk.Label(janela, text="Aguardando mensagem do usuário")
-Men_espera.pack()
-
-janela.mainloop()
+# Testando a classe ContaBancaria
+conta = ContaBancaria('João')
+conta.depositar(1500)
+conta.sacar(500)
+conta.sacar(700)
+conta.ver_saldo()
